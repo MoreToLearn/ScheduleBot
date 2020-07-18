@@ -1,0 +1,28 @@
+{
+  "name": "bot-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "npx eslint src/ --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaida04/Bot-Boilerplate.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zaida04/Bot-Boilerplate/issues"
+  },
+  "homepage": "https://github.com/zaida04/Bot-Boilerplate#readme",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "log-timestamp": "^0.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.5.0"
+  }
+}

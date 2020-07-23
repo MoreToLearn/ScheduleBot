@@ -16,6 +16,9 @@
   "bugs": {
     "url": "https://github.com/zaida04/Bot-Boilerplate/issues"
   },
+  "nodemonConfig": {
+    "ignore": ["positions", "positions/*"]
+  },
   "homepage": "https://github.com/zaida04/Bot-Boilerplate#readme",
   "dependencies": {
     "discord.js": "^12.2.0",
@@ -23,6 +26,7 @@
     "log-timestamp": "^0.3.0"
   },
   "devDependencies": {
-    "eslint": "^7.5.0"
+    "eslint": "^7.5.0",
+    "nodemon": "^2.0.4"
   }
 }

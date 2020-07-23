@@ -1,5 +1,5 @@
 module.exports = async (message) => {
-	let prefix = "!";
+	let prefix = message.client.prefix;
 	//check to see if the message author is a bot
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -45,6 +45,7 @@ module.exports = async (message) => {
 		//wrap it in an async because most of the commands should return a promise that we would like to await.
 		await command.execute(message, args);
 	} catch (e) {
-		message.channel.send(`An internal exception has occured. This should not happen, and we'd like to ask you to join our support server that you can access using \`?support\` and to copy paste the error below and the command code into https://pastebin.com/ and share it with us. \n\n The error to copy paste: \`\`\` ${e} \`\`\`\n **Please Include this: Command Code: ${command.id}**`);
+		console.log(e);
+		message.channel.send("There was an error doing that. Weird, tell Zaid.");
 	}
 };

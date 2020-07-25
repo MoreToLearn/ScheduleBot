@@ -10,7 +10,7 @@ module.exports = {
 		if (!email || !description) return message.channel.send(`You have not provided any details! Usage: \`${message.client.prefix}schedule <email> <description>\`.\nExample: \`${message.client.prefix}schedule me@email.com 5th Grader, wishing to learn geography\``);
 		description = description.join(" ");
 		const id = randomInRange(100, 1000);
-		let msg = await message.guild.channels.cache.find(x => x.name === "tutor-requests").send(new MessageEmbed().setTitle("New Tutor Request").setDescription(`**Description**: ${description}`).setFooter(`To claim, do ${message.client.prefix}claim ${id}`));
+		let msg = await message.guild.channels.cache.get(message.client.channel_id).send(new MessageEmbed().setTitle("New Tutor Request").setDescription(`**Description**: ${description}`).setFooter(`To claim, do ${message.client.prefix}claim ${id}`));
 		const position = {
 			"email": email,
 			"description": description,

@@ -2,10 +2,11 @@ const { Client, Collection } = require("discord.js");
 const client = new Client();
 const fs = require("fs");
 
-const { token } = require("../config");
+const { token, channel_id } = require("../config");
 client.commands = new Collection();
 client.path = `${__dirname}/../positions`;
 client.prefix = "!";
+client.channel_id = channel_id;
 
 client.on("ready", async () => {
 	try {

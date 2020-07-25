@@ -8,7 +8,7 @@ Default Prefix: `!`
 `!claim <id>`
 `!delete <id>`
 
-# Setup 
+# Setup  
 - Need to supply discord bot **token** in a .env file
 - In same .env file supply channel id for embeds to go 
 - Can change prefix by just editing `line 8` in `src/index.js` (yes i'm too lazy to add it to the .env)

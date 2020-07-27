@@ -13,8 +13,8 @@ module.exports = {
 			.setDescription(`Please react with either of the two reactions at the bottom\n\n**Description**:\n${description}`)
 			.setFooter(message.client.user.username, message.client.user.displayAvatarURL());
 		let msg = await message.channel.send(voteEmbed);
-		await msg.react("👍");
-		await msg.react("👎");
+		await msg.react("??");
+		await msg.react("??");
 		message.delete();
 	}
 };

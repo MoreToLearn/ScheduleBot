@@ -11,6 +11,6 @@ module.exports = {
 		let fetch_msg = await message.guild.channels.cache.get(message.client.channel_id).messages.fetch(event.message_id);
 		fetch_msg.edit(`Claimed by ${message.author}`);
 		message.delete();
-		return message.author.send(new MessageEmbed().setTitle("You have claimed this position.").setDescription(`**Email to contact:** ${event.email}\n**Description:** ${event.description}`));
+ 		return message.author.send(new MessageEmbed().setTitle("You have claimed this position.").setDescription(`**Email to contact:** ${event.email}\n**Description:** ${event.description}\n Note: please CC moretolearn20@gmail.com in all emails.`));
 	}
 };

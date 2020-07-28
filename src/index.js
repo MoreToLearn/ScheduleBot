@@ -1,16 +1,17 @@
 const { Client, Collection } = require("discord.js");
-const client = new Client();
 const fs = require("fs");
-
 const { token, channel_id } = require("../config");
+const PositionManager = require("./internals/managers/PositionManager");
+
+const client = new Client();
 client.commands = new Collection();
 client.path = `${__dirname}/../positions`;
 client.prefix = "!";
 client.channel_id = channel_id;
+client.positions = new PositionManager();
 
 client.on("ready", async () => {
 	try {
-		console.log(client.path);
 		await require("./internals/load/loadEvents")(client);
 		await require("./internals/load/loadCommands")(client);
 		if (!fs.existsSync("./positions")) await fs.promises.mkdir("./positions");

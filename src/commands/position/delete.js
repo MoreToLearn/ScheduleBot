@@ -2,6 +2,7 @@ module.exports = {
 	"name": "delete",
 	"description": "delete a position",
 	"usage": "<id>",
+	"example": "972",
 	"execute": async(message, [id]) => {
 		if (!message.client.positions.has(id)) return message.channel.send("That position does not exist.");
 		const event = message.client.positions.get(id);

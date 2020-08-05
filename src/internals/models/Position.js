@@ -8,6 +8,15 @@ class Position {
 		this._msg_id = msg_id;
 		this._path = `${dir}/${id}.json`;
 	}
+	set claimer(value) {
+		this._claimer = value;
+	}
+	set taken (value) {
+		this._taken = !!value;
+	}
+	set msg_id (value) {
+		this._msg_id = value;
+	}
 	get id() {
 		return this._id;
 	}

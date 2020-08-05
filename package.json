@@ -17,7 +17,10 @@
     "url": "https://github.com/zaida04/Bot-Boilerplate/issues"
   },
   "nodemonConfig": {
-    "ignore": ["positions", "positions/*"]
+    "ignore": [
+      "positions",
+      "positions/*"
+    ]
   },
   "homepage": "https://github.com/zaida04/Bot-Boilerplate#readme",
   "dependencies": {

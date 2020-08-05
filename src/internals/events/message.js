@@ -14,7 +14,6 @@ module.exports = async (message) => {
 	//if the command is not in the collection, do not continue
 
 	if (!command) return;
-
 	//if the command has the property guildOnly as true, and the message isn't in a guild, do not continue
 	if (command.guildOnly && message.channel.type !== "text") {
 		return message.reply("Sorry, but you can't execute that command inside DMs!");

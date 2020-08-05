@@ -9,10 +9,6 @@
 		"ecmaVersion": 11
 	},
 	"rules": {
-		"indent": [
-			"error",
-			"tab"
-		],
 		"quotes": [
 			"warn",
 			"double"

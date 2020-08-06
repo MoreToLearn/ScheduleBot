@@ -1,8 +1,8 @@
 class Manager {
   constructor(handles, holds) {
     this._handles = handles;
-    this._holds = holds; 
-    this._model = require(`../models/${holds}`);
+    this._holds = holds;
+    this._model = require(`../models/${holds[0].toUpperCase()}${holds.slice(1)}`);
   }
   get model() {
     return this._model;

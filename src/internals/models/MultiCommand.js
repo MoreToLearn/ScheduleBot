@@ -24,11 +24,11 @@ module.exports = class MultiCommand {
     }
 
     async execute(message, [option, ...args]) {
-        if(!option) return message.channel.send(`Options for this are: ${this.sub_commands.join(", ")}`)
-        if(!this.sub_commands.includes(option)) return message.channel.send(`That option does not exist. Avaliable options are: ${this.sub_commands.join(", ")}`);
+        if(!option) return message.channel.send(`Options for this are: ${this.sub_commands.join(", ")}`);
+        if(!this.sub_commands.includes(option)) return message.channel.send(`That option does not exist. Avaliable options are: ${this.sub_commands.map(x => `\`${x}\``).join(", ")}`);
         let path = `../../commands/${this.name}/${option}`;
         let sub_command = require(path);
-        if(!args) return message.channel.send(`Usage for ${option}.\nUsage: \`${message.client.prefix}${option} ${sub_command.usage}\`\nExample: \`${message.client.prefix}${option} ${sub_command.example}\`\nDescription: \`${sub_command.description}\``);
-        return sub_command.execute(message, args)
+        if(!args) return message.channel.send(`Usage for ${option}.\nUsage: \`${message.client.data.prefix}${option} ${sub_command.usage}\`\nExample: \`${message.client.data.prefix}${option} ${sub_command.example}\`\nDescription: \`${sub_command.description}\``);
+        return sub_command.execute(message, args);
     }
 };

@@ -1,5 +1,5 @@
 module.exports = async (message) => {
-	let prefix = message.client.prefix;
+	let prefix = message.client.data.prefix;
 	//check to see if the message author is a bot
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -15,8 +15,8 @@ module.exports = async (message) => {
 
 	if (!command) return;
 	//if the command has the property guildOnly as true, and the message isn't in a guild, do not continue
-	if (command.guildOnly && message.channel.type !== "text") {
-		return message.reply("Sorry, but you can't execute that command inside DMs!");
+	if (command.dmOnly && message.channel.type !== "dm") {
+		return message.reply("Sorry, but you can only execute that in DM's!");
 	}
 	//if the command *has* a required permissions array, and the executor does not have these said permissions, do not continue
 	if (command.permissions && !message.guild.member(message.author).hasPermission(command.permissions, false, true, true)) {

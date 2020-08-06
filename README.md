@@ -10,8 +10,9 @@ Default Prefix: `!`
 
 # Setup  
 - Need to supply discord bot **token** in a .env file
-- In same .env file supply channel id for embeds to go 
-- Can change prefix by just editing `line 8` in `src/index.js` (yes i'm too lazy to add it to the .env)
+- Supply all needed embed fields (can look at [config.js](https://github.com/zaida04/ScheduleBot/blob/master/config.js) for required ones)
+- run `pnpm i` **not npm i**
+- run `pnpm start`
 
 # License
 [MIT](https://github.com/zaida04/ScheduleBot/blob/master/LICENSE)

@@ -1,13 +1,13 @@
 const MultiCommand = require("../internals/models/MultiCommand");
 
-class position extends MultiCommand {
+class positions extends MultiCommand {
     constructor() {
         super({
-            "name": "position",
+            "name": "positions",
             "description": "Perform an action involving positions",
             "sub_commands": ["claim", "create", "delete"]
         });
     }
 }
 
-module.exports = new position();
+module.exports = new positions();

@@ -1,6 +1,7 @@
 dependencies:
   discord.js: 12.2.0
   dotenv: 8.2.0
+  emoji-regex: 9.0.0
   log-timestamp: 0.3.0
   mongoose: 5.9.27_mongoose@5.9.27
   twilio: 3.48.2
@@ -575,6 +576,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
+  /emoji-regex/9.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-6p1NII1Vm62wni/VR/cUMauVQoxmLVb9csqQlvLz+hO2gk8U2UYDfXHQSUYIBKmZwAKz867IDqG7B+u0mj+M6w==
   /end-of-stream/1.4.4:
     dependencies:
       once: 1.4.0
@@ -1958,6 +1963,7 @@ packages:
 specifiers:
   discord.js: ^12.2.0
   dotenv: ^8.2.0
+  emoji-regex: ^9.0.0
   eslint: ^7.5.0
   log-timestamp: ^0.3.0
   mongoose: ^5.9.27

@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const emojiRegex = require('emoji-regex');
+const emojiRegex = require("emoji-regex");
 const regex = emojiRegex();
 
 module.exports = {
@@ -9,7 +9,6 @@ module.exports = {
 	"execute": async (message, args) => {
 		let description = args.join(" ");
 		if (!description) return message.channel.send("You need to provide a description!");
-		const regex = emojiRegex();
 		let match;
 		let emojis = [];
 		// eslint-disable-next-line no-cond-assign

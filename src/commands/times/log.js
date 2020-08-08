@@ -9,7 +9,7 @@ module.exports = {
 	"usage": "<hours> <firstname> <lastname> <description>",
 	"example": "2.5 i taught them how to tie their shoes",
 	"execute": async function (message) {
-		if(message.channel.type !== "dm") retunr message.channel.send("You can only do this in dms in order to protect your information.")
+		if(message.channel.type !== "dm") return message.channel.send("You can only do this in dms in order to protect your information.");
 		let name = (await prompter.message(message.channel, {
 			question: new PromptEmbed("What is your full name?", "Please give your full name"),
 			userId: message.author.id,
@@ -35,7 +35,7 @@ module.exports = {
 			timeout: 17000,
 		})).first();
 		if(!minutes) return message.channel.send(new ErrorEmbed("You ran out of time!", "You didn't provide an amount of minutes in time"));
-		if(parseInt(minutes) > 60) return message.channel.send(new ErrorEmbed("Sorr"))
+		if(parseInt(minutes) > 60) return message.channel.send(new ErrorEmbed("Sorr"));
 		if(Number.isNaN(parseInt(minutes))) return message.channel.send(new ErrorEmbed("Incorrect!", "That is not a proper amount of minutes. Try running this again."));
 
 		let date = (await prompter.message(message.channel, {

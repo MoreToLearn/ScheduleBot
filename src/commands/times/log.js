@@ -88,5 +88,6 @@ module.exports = {
 				"msg_id": msg.id
 			});
 		message.channel.send(`Your time log has been recieved and will be reviewed before being inputted. Please screenshot the details below for your records.\n\nid: ${id}\nname: ${name}\ntime: ${hours} hours and ${minutes} minutes`);
+		if(message.channel.type === "text") return message.channel.bulkDelete(6);
 	}
 };

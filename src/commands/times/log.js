@@ -9,7 +9,6 @@ module.exports = {
 	"usage": "<hours> <firstname> <lastname> <description>",
 	"example": "2.5 i taught them how to tie their shoes",
 	"execute": async function (message) {
-		if(message.channel.type !== "dm") return message.channel.send("You can only do this in dms in order to protect your information.");
 		let name = (await prompter.message(message.channel, {
 			question: new PromptEmbed("What is your full name?", "Please give your full name"),
 			userId: message.author.id,
@@ -85,7 +84,7 @@ module.exports = {
 					"hours": hours,
 					"minutes": minutes
 				},
-				"date": new Date(date),
+				"date": date,
 				"msg_id": msg.id
 			});
 		message.channel.send(`Your time log has been recieved and will be reviewed before being inputted. Please screenshot the details below for your records.\n\nid: ${id}\nname: ${name}\ntime: ${hours} hours and ${minutes} minutes`);

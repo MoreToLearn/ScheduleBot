@@ -25,6 +25,7 @@
   "homepage": "https://github.com/zaida04/Bot-Boilerplate#readme",
   "dependencies": {
     "discord.js": "^12.2.0",
+    "discordjs-prompter": "^2.0.4",
     "dotenv": "^8.2.0",
     "emoji-regex": "^9.0.0",
     "log-timestamp": "^0.3.0",

@@ -4,9 +4,20 @@ const log = new Schema({
 	"_id": String,
 	"msg_id": String,
 	"name": String,
-	"time": String,
+	"time": {
+		"hours": String,
+		"minutes": String
+	},
 	"description": String,
 	"verified": Boolean,
+	"date": {
+		type: Date,
+		required: true
+	},
+	"log_date": {
+		type: Date,
+		default: new Date()
+	},
 	"verifier": String,
 });
 

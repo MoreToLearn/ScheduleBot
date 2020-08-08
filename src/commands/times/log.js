@@ -9,6 +9,7 @@ module.exports = {
 	"usage": "<hours> <firstname> <lastname> <description>",
 	"example": "2.5 i taught them how to tie their shoes",
 	"execute": async function (message) {
+		if(message.channel.type !== "dm") retunr message.channel.send("You can only do this in dms in order to protect your information.")
 		let name = (await prompter.message(message.channel, {
 			question: new PromptEmbed("What is your full name?", "Please give your full name"),
 			userId: message.author.id,

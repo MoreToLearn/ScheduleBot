@@ -59,6 +59,10 @@ module.exports = {
 				{
 					"name": "Tutor",
 					"value": name
+				},
+				{
+					"name": "Submitter",
+					"value": message.author.tag
 				}
 			])
 			.setFooter(`ID: ${id}. To verify, do !times verify ${id}`);

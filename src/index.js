@@ -9,6 +9,7 @@ client.commands = new Collection();
 client.data = config;
 client.positions = new PositionManager();
 client.times = new TimeManager();
+client.prompter = require("./internals/models/Prompter");
 client.generateID = (from, to) => (Math.floor(Math.random() * (to - from) + from)).toString();
 client.texts = new TextManager(config.smsacc_id, config.smsacc_token, config.smsacc_numbers.split(", "), client.generateID);
 

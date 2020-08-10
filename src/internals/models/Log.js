@@ -18,6 +18,7 @@ const log = new Schema({
 		type: Date,
 		default: new Date()
 	},
+	"submitter": String,
 	"verifier": String,
 });
 

@@ -19,7 +19,7 @@ module.exports = {
                 .setColor("GREEN")
                 .setFooter(`ID: ${text._id}`)
         );
-        message.client.channels.cache.get(message.client.data.admin_id).send(
+        message.client.channels.cache.get(message.client.data.times_id).send(
             new MessageEmbed()
                 .setTitle("Message Sent")
                 .addFields([

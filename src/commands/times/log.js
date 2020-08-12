@@ -36,6 +36,7 @@ module.exports = {
 		if (!date) return message.author.send(new ErrorEmbed("You ran out of time!", "You didn't provide a date in time. Please run the command again"));
 		date = date ? date.content : date;
 		if (Number.isNaN(Date.parse(date))) return message.author.send(new ErrorEmbed("Incorrect!", "You didn't provide a valid date (Ex. 4-17-2020). Please run the command again"));
+		if(Date.parse(date) < Date.parse("7-24-2020")) return message.author.send("Date is incorrect, can't be before 7-24-2020. Please try again.")
 
 		await message.author.send(new PromptEmbed("What did you spend your time doing/teaching?", "This can be as long as you wish.\nEx. `Taught child how to tie their shoes`"));
 		let description = (await message.client.prompter(dmChannel, message.author));
@@ -66,9 +67,8 @@ module.exports = {
 				}
 			])
 			.setFooter(`ID: ${id}. To verify, do !times verify ${id}`);
-
 		try {
-			let msg = await message.client.channels.cache.get(message.client.data.admin_id).send(timeEmbed);
+			let msg = await message.client.channels.cache.get(message.client.data.times_id).send(timeEmbed);
 			message.client.times.create(id,
 				{
 					"name": name,

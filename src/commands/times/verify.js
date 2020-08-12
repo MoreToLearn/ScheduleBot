@@ -13,6 +13,7 @@ module.exports = {
 		let fetch_msg = await message.guild.channels.cache.get(message.client.data.times_id).messages.fetch(log.msg_id);
 		fetch_msg.edit(`Verified by ${message.author}. ${more_info.length > 0 ? `ADDITIONAL INFO: ${more_info.join(" ")}`: ""}`);
 		log.verified = true;
+		more_info.length > 0 ? log.verified = more_info.join(" ") : null;
 		log.verifier = message.author.id;
 		await log.save();
 		let submitter = await message.client.users.fetch(log.submitter);

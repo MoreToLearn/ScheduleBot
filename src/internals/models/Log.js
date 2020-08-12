@@ -20,6 +20,7 @@ const log = new Schema({
 	},
 	"submitter": String,
 	"verifier": String,
+	"additional_note": String
 });
 
 module.exports = model("log", log);

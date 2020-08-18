@@ -18,6 +18,12 @@ const log = new Schema({
 		type: Date,
 		default: new Date()
 	},
+	"tutee": {
+		"name": String,
+		"contact": String,
+		"grade": String,
+	},
+	"subject": String,
 	"submitter": String,
 	"verifier": String,
 	"additional_note": String

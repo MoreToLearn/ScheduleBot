@@ -35,10 +35,30 @@ module.exports = {
 		let date = (await message.client.prompter(dmChannel, message.author));
 		if (!date) return message.author.send(new ErrorEmbed("You ran out of time!", "You didn't provide a date in time. Please run the command again"));
 		date = date ? date.content : date;
-		if (Number.isNaN(Date.parse(date))) return message.author.send(new ErrorEmbed("Incorrect!", "You didn't provide a valid date (Ex. 4-17-2020). Please run the command again"));
-		if(Date.parse(date) < Date.parse("7-24-2020")) return message.author.send("Date is incorrect, can't be before 7-24-2020. Please try again.")
+		if (Number.isNaN(Date.parse(date))) return message.author.send(new ErrorEmbed("Incorrect!", "You didn't provide a valid date (Ex. 7-25-2020). Please run the command again"));
+		if(Date.parse(date) < Date.parse("7-24-2020")) return message.author.send("Date is incorrect, can't be before 7-24-2020. Please try again.");
 
-		await message.author.send(new PromptEmbed("What did you spend your time doing/teaching?", "This can be as long as you wish.\nEx. `Taught child how to tie their shoes`"));
+		await message.author.send(new PromptEmbed("What is your tutee(person being tutored)'s name?", "Please use the same name in every time log, (first name, last initial)"));
+		let tutee_name = (await message.client.prompter(dmChannel, message.author));
+		if (!tutee_name) return message.author.send(new ErrorEmbed("You ran out of time!", "You didn't provide a name in time. Please run the command again"));
+		tutee_name = tutee_name ? tutee_name.content : tutee_name;
+		
+		await message.author.send(new PromptEmbed("What subject (if multiple, use commas) did you teach?", "Please provide valid subjects"));
+		let subject = (await message.client.prompter(dmChannel, message.author));
+		if (!subject) return message.author.send(new ErrorEmbed("You ran out of time!", "You didn't provide a subject in time. Please run the command again"));
+		subject = subject ? subject.content : subject;
+
+		await message.author.send(new PromptEmbed("Please provide the contact info that you used to contact, email or phone number only. If you don't remember this (???) then you can revisit our earlier dms and see the contact info I gave you", "Please just put the email or the phone number, example of input: `test@email.com` or `7166048061`"));
+		let contact = (await message.client.prompter(dmChannel, message.author));
+		if (!contact) return message.author.send(new ErrorEmbed("You ran out of time!", "You didn't provide contact info in time. Please run the command again"));
+		contact = contact ? contact.content : contact;	
+
+		await message.author.send(new PromptEmbed("What grade is your tutee in?", "Please only provide a number (ex. 6) if applies, or a word (ex. Kindergarten)"));
+		let grade = (await message.client.prompter(dmChannel, message.author));
+		if (!grade) return message.author.send(new ErrorEmbed("You ran out of time!", "You didn't provide contact info in time. Please run the command again"));
+		grade = grade ? grade.content : grade;
+
+		await message.author.send(new PromptEmbed("Any additional details you wish to provide? If not, say `no`", "This can be as long as you wish."));
 		let description = (await message.client.prompter(dmChannel, message.author));
 		if (!description) return message.author.send(new ErrorEmbed("You ran out of time!", "You didn't provide a description in time. Please run the command again"));
 		description = description ? description.content : description;
@@ -47,15 +67,31 @@ module.exports = {
 		let id = message.client.generateID(1000, 10000);
 		let timeEmbed = new MessageEmbed()
 			.setTitle("New Volunteer Time")
-			.setDescription(description)
+			.setDescription(`**additional notes:** \`${  description}\``)
 			.addFields([
 				{
 					"name": "Amount of Time",
-					"value": `${hours} hours and ${minutes} minutes`
+					"value": `${hours} hours and ${minutes} minutes`,
+					"inline": true
 				},
 				{
 					"name": "Date",
-					"value": date
+					"value": date,
+					"inline": true
+				},
+				{
+					"name": "Subject",
+					"value": subject
+				},
+				{
+					"name": "Tutee",
+					"value": `${tutee_name} (${contact})`,
+					"inline": true
+				},
+				{
+					"name": "Tutee Grade",
+					"value": grade,
+					"inline": true
 				},
 				{
 					"name": "Tutor",
@@ -63,10 +99,11 @@ module.exports = {
 				},
 				{
 					"name": "Submitter",
-					"value": message.author.tag
+					"value": message.author.tag,
+					"inline": true
 				}
 			])
-			.setFooter(`ID: ${id}. To verify, do !times verify ${id}`);
+			.setFooter(`ID: ${id}. To verify, do !times verify ${id}. To reject, do !times reject ${id}`);
 		try {
 			let msg = await message.client.channels.cache.get(message.client.data.times_id).send(timeEmbed);
 			message.client.times.create(id,
@@ -77,6 +114,12 @@ module.exports = {
 						"hours": hours,
 						"minutes": minutes
 					},
+					"tutee": {
+						"name": tutee_name,
+						"contact": contact,
+						"grade": grade
+					},
+					"subject": subject,
 					"date": date,
 					"msg_id": msg.id,
 					"submitter": message.author.id

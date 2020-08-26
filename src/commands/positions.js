@@ -5,7 +5,7 @@ class positions extends MultiCommand {
         super({
             "name": "positions",
             "description": "Perform an action involving positions",
-            "sub_commands": ["claim", "create", "delete"]
+            "sub_commands": ["claim", "create", "delete", "bump"]
         });
     }
 }

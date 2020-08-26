@@ -18,6 +18,10 @@ module.exports = async (message) => {
 	if (command.dmOnly && message.channel.type !== "dm") {
 		return message.reply("Sorry, but you can only execute that in DM's!");
 	}
+
+	if (command.guildOnly && message.channel.type == "dm") {
+		return message.reply("Sorry, but this can only be done in the server!");
+	}
 	//if the command *has* a required permissions array, and the executor does not have these said permissions, do not continue
 	if (command.permissions && !message.guild.member(message.author).hasPermission(command.permissions, false, true, true)) {
 		return message.reply(`Sorry, but you do not have the permissions: ${command.permissions}. `);

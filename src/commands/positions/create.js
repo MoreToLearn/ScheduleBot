@@ -10,7 +10,7 @@ module.exports = {
 		description = description.join(" ");
 
 		const id = message.client.generateID(1000, 10000);
-		let msg = await message.guild.channels.cache.get(message.client.data.channel_id).send(new MessageEmbed().setTitle("New Tutor Request").addField("Description", description).setFooter(`To claim, do ${message.client.data.prefix}position claim ${id}`));
+		let msg = await message.guild.channels.cache.get(message.client.data.channel_id).send(new MessageEmbed().setTitle("New Tutor Request").addField("Description", description).setFooter(`To claim, do ${message.client.data.prefix}positions claim ${id}`));
 		await message.client.positions.create(id, {"email": email, "description": description, "msg_id": msg.id});
 
 		return message.channel.send(new MessageEmbed().setTitle("Event Created").setDescription(`Event created in: ${message.guild.channels.cache.get(message.client.data.channel_id)}`).addFields(

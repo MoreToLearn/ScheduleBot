@@ -5,7 +5,7 @@ class times extends MultiCommand {
         super({
             "name": "times",
             "description": "Perform an action involving logging time",
-            "sub_commands": ["log", "verify","reject"]
+            "sub_commands": ["log", "verify", "reject", "meeting"]
         });
     }
 }

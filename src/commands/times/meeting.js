@@ -1,10 +1,9 @@
 module.exports = {
     "name": "meeting",
     "execute": async (message, [hours, minutes, ...people_info]) => {
-        for (let x = 0; x < people_info.length; x += 2) {
+        for (let x = 0; x < people_info.length; x++) {
             let person = {
                 name: people_info[x],
-                info: people_info[x + 1]
             };
             logMember(message.client, {
                 name: person.name,

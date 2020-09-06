@@ -5,7 +5,7 @@ module.exports = {
             let person = {
                 name: `${people_info[x]} ${people_info[x+1]}`,
             };
-            const parse_date = isNaN(Date.parse(date)) ? new Date() : new Date(date);
+            const parse_date = isNaN(Date.parse(date)) ? new Date() : Date.parse(date);
             logMember(message.client, {
                 name: person.name,
                 hours: hours,

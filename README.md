@@ -4,9 +4,9 @@ A bot to create positions and allow others to claim them.
 # Usage
 Default Prefix: `!`
 
-`!positions create <contact-email/phone-number> <description of position>` (has id at bottom of message posted in channel)
-`!positions claim <id>`
-`!positions delete <id>`
+`!positions create <contact-email/phone-number> <description of position>` (has id at bottom of message posted in channel)  
+`!positions claim <id>`  
+`!positions delete <id>`  
 
 # Setup  
 - Need to supply discord bot **token** in a .env file
